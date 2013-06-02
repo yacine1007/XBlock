@@ -86,6 +86,8 @@ class DbModel(MutableMapping):
                 block_id = self._usage.def_id
             elif block == BlockScope.TYPE:
                 block_id = self._block_cls.__name__
+            elif block == BlockScope.COURSE:
+                block_id = self._usage.id # FIXME: reasoning that COURSE is like USAGE (ie, settings) just more narrowly constrained in visibility/applicability. But perhaps should be like DEFINITION?
 
             if field.scope.user:
                 student_id = self._student_id

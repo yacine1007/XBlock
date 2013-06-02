@@ -19,7 +19,7 @@ from .plugin import Plugin
 
 
 class BlockScope(object):
-    USAGE, DEFINITION, TYPE, ALL = xrange(4)
+    USAGE, DEFINITION, TYPE, ALL, COURSE = xrange(5)
 
 
 class Sentinel(object):
@@ -44,6 +44,7 @@ class Scope(ScopeBase):
     user_state = ScopeBase(user=True, block=BlockScope.USAGE)
     preferences = ScopeBase(user=True, block=BlockScope.TYPE)
     user_info = ScopeBase(user=True, block=BlockScope.ALL)
+    course_info = ScopeBase(user=False, block=BlockScope.COURSE)
     children = Sentinel('Scope.children')
     parent = Sentinel('Scope.parent')
 
